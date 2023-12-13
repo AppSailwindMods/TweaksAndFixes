@@ -1,0 +1,1 @@
+xcopy /y TweaksAndFixes.dll "F:\SteamLibrary\steamapps\common\Sailwind\BepInEx\plugins\TweaksAndFixes"

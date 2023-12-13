@@ -13,13 +13,6 @@ namespace TweaksAndFixes.Patches
     internal static class MissionSortButtonPatches
     {
         private static TextMesh cargo;
-        private static Dictionary<string, string> cargoNames = new Dictionary<string, string>()
-        {
-            {"very_big_crate", "Very Big Crate" },
-            {"big_crate", "Big Crate" },
-            {"crate", "Small Crate" },
-            {"barrel_closed", "Barrel" },
-        };
 
         public static void SortMissions(Mission[] missions)
         {
@@ -128,12 +121,7 @@ namespace TweaksAndFixes.Patches
             {
                 if (___currentMission != null)
                 {
-                    string meshName = ___currentMission.goodPrefab.GetComponent<MeshFilter>().sharedMesh.name;
-                    if (!cargoNames.TryGetValue(meshName, out string cargoName))
-                    {
-                        cargoName = meshName;
-                    }
-                    cargo.text = cargoName;
+                    cargo.text = ___currentMission.goodPrefab.GetComponent<Good>().sizeDescription;
                 }
             }
         }
@@ -184,7 +172,7 @@ namespace TweaksAndFixes.Patches
                         int num2 = ___maxGoodsPerMission;
                         float num3 = DebugMarketTracker.instance.missionProfitShareLocal;
                         float distance = Mission.GetDistance(___market.GetPort(), port);
-                        if(Mission.UseOceanMapFor(___market.GetPort(), port))
+                        if (Mission.UseOceanMapFor(___market.GetPort(), port))
                         {
                             num2 *= 2;
                             num3 = DebugMarketTracker.instance.missionProfitShareWorld;

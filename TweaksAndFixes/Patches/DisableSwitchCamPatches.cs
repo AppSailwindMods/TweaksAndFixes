@@ -16,7 +16,7 @@ namespace TweaksAndFixes.Patches
             [HarmonyPrefix]
             public static bool Prefix(BoatCamera __instance)
             {
-                if(Utilities.GamePaused) return false;
+                if (Utilities.GamePaused) return false;
                 if (GameInput.GetKeyDown(InputName.CameraMode) && !GameState.currentBoat) return false;
                 return true;
             }

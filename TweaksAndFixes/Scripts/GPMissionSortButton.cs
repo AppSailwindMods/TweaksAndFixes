@@ -26,8 +26,7 @@ namespace TweaksAndFixes.Scripts
         public static Port currentPort;
 
         public static MissionSorting missionSorting = MissionSorting.PricePerMile;
-
-        static string[] sortingStrings = new[]
+        private static string[] sortingStrings = new[]
         {
             "Price Per Mile",
             "Reward",
@@ -73,7 +72,7 @@ namespace TweaksAndFixes.Scripts
         public void UpdateText()
         {
             string missionSortingText = missionSorting.ToString();
-            if((int)missionSorting < sortingStrings.Length)
+            if ((int)missionSorting < sortingStrings.Length)
             {
                 missionSortingText = sortingStrings[(int)missionSorting];
             }

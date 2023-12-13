@@ -40,7 +40,7 @@ namespace TweaksAndFixes
 
             GameEvents.OnPlayerInput += (_, __) =>
             {
-                if(quickSaveKey.Value.IsDown() && SaveLoadManager.readyToSave)
+                if (quickSaveKey.Value.IsDown() && SaveLoadManager.readyToSave)
                 {
                     SaveLoadManager.instance.SaveGame(true);
                     NotificationUi.instance.ShowNotification("Game Saved!");
@@ -67,7 +67,7 @@ namespace TweaksAndFixes
 
             GameEvents.OnSaveLoad += (_, __) =>
             {
-                if(!ModSave.Load<SaveContainer>(Info, out saveContainer))
+                if (!ModSave.Load<SaveContainer>(Info, out saveContainer))
                 {
                     saveContainer = new SaveContainer();
                 }

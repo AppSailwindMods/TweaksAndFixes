@@ -118,6 +118,7 @@
     <Compile Include="QuitNoSaveData.cs" />
     <Compile Include="SaveContainer.cs" />
     <Compile Include="Scripts\GPQuitNoSaveButton.cs" />
+    <Compile Include="Scripts\ShipItemData.cs" />
     <Compile Include="Scripts\ShipItemInventory.cs" />
     <Compile Include="Scripts\ShipItemLampHookItemHooked.cs" />
     <Compile Include="TweaksAndFixesMain.cs" />

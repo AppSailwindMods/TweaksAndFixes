@@ -11,6 +11,7 @@ namespace TweaksAndFixes
     {
         public List<HookItemSaveable> hookItems = new List<HookItemSaveable>();
         public List<InInventorySaveable> inInventoryItems = new List<InInventorySaveable>();
+        public List<ItemDataSaveable> itemDatas = new List<ItemDataSaveable>();
     }
 
     [System.Serializable]
@@ -23,11 +24,6 @@ namespace TweaksAndFixes
         {
             this.prefabIndex = prefabIndex;
             this.hookItemIndex = hookItemIndex;
-        }
-
-        public HookItemSaveable()
-        {
-
         }
     }
 
@@ -42,10 +38,20 @@ namespace TweaksAndFixes
             this.prefabIndex = prefabIndex;
             this.inInventory = inInventory;
         }
+    }
 
-        public InInventorySaveable()
+    [System.Serializable]
+    public class ItemDataSaveable
+    {
+        public int prefabIndex;
+        public string dataName;
+        public object data;
+
+        public ItemDataSaveable(int prefabIndex, string dataName, object data)
         {
-
+            this.prefabIndex = prefabIndex;
+            this.dataName = dataName;
+            this.data = data;
         }
     }
 }

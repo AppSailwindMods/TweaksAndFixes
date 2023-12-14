@@ -39,6 +39,13 @@ namespace TweaksAndFixes.Patches
                         prefab.GetComponent<ShipItemInventory>().inInventory = i.inInventory;
                     }
                 });
+                TweaksAndFixesMain.instance.saveContainer.itemDatas.ForEach(i =>
+                {
+                    if (saveablePrefabs.TryGetValue(i.prefabIndex, out var prefab))
+                    {
+                        prefab.GetComponent<ShipItemData>().SetData(i.dataName, i.data);
+                    }
+                });
             }
 
             public static Dictionary<int, SaveablePrefab> saveablePrefabs = new Dictionary<int, SaveablePrefab>();
@@ -64,6 +71,14 @@ namespace TweaksAndFixes.Patches
                 if (shipItemInventory)
                 {
                     TweaksAndFixesMain.instance.saveContainer.inInventoryItems.Add(new InInventorySaveable(indexCounter, shipItemInventory.inInventory));
+                }
+                ShipItemData shipItemData = ___item.GetComponent<ShipItemData>();
+                if (shipItemData)
+                {
+                    foreach (var keyValuePair in shipItemData.data)
+                    {
+                        TweaksAndFixesMain.instance.saveContainer.itemDatas.Add(new ItemDataSaveable(indexCounter, keyValuePair.Key, keyValuePair.Value));
+                    }
                 }
             }
 

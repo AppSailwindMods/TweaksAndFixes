@@ -16,7 +16,7 @@ namespace TweaksAndFixes
     {
         public const string GUID = "com.app24.tweaksandfixes";
         public const string NAME = "Tweaks And Fixes";
-        public const string VERSION = "2.0.0";
+        public const string VERSION = "2.0.1";
 
         internal static ManualLogSource logSource;
 
@@ -70,6 +70,10 @@ namespace TweaksAndFixes
                 if (!ModSave.Load<SaveContainer>(Info, out saveContainer))
                 {
                     saveContainer = new SaveContainer();
+                }
+                if (saveContainer.itemDatas == null)
+                {
+                    saveContainer.itemDatas = new List<ItemDataSaveable>();
                 }
                 SaveablePrefabPatches.LoadPatch.AssignHookItems();
             };
